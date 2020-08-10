@@ -47,7 +47,7 @@ export default function Home() {
                                }}>
                     <FormikStep validationSchema={nameValidationSchema} label="Personal Info">
                         <Box paddingBottom={2}>
-                            <Field fullWidth name="firstName" component={TextField} types="text" label="First Name"/>
+                            <Field fullWidth name="firstName" component={TextField} type="text" label="First Name"/>
                         </Box>
                         <Box paddingBottom={2}>
                             <Field fullWidth name="lastName" component={TextField} type="text" label="Last Name"/>
@@ -75,9 +75,9 @@ export default function Home() {
 
 export function FormikStepper({children, ...props}: FormikConfig<FormikValues>) {
 
-    const childrenArray = React.Children.toArray(children) as React.ElementType<FormikStepProps>[];
+    const childrenArray = React.Children.toArray(children) as React.ReactElement<FormikStepProps>[];
     const [step, setStep] = useState(0);
-    const currentChild = childrenArray[step] as React.ElementType<FormikStepProps>;
+    const currentChild = childrenArray[step] as React.ReactElement<FormikStepProps>;
     const [completed, setCompleted] = useState(false);
 
     function isLastStep() {
